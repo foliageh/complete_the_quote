@@ -1,5 +1,9 @@
 .idea/
 __pycache__/
+*.pyc
+*.bak
 .dockerignore
 Dockerfile
 docker-compose.yml
+selenium_drivers/
+.git/

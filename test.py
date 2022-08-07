@@ -8,14 +8,19 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
+chrome_options.add_argument('--headless')
 
-options = webdriver.ChromeOptions()
-options.add_experimental_option('excludeSwitches', ['enable-logging'])
-options.add_argument('--headless')
+# because of docker
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--window-size=1920,1080')
+chrome_options.add_argument('--disable-gpu')
+
 if system() == 'Windows':
-    browser = webdriver.Chrome(service=Service('selenium_drivers/chromedriver.exe'), options=options)
+    browser = webdriver.Chrome(service=Service('selenium_drivers/chromedriver.exe'), options=chrome_options)
 elif system() == 'Linux':
-    browser = webdriver.Chrome(service=Service('selenium_drivers/chromedriver'), options=options)
+    browser = webdriver.Chrome(service=Service('selenium_drivers/chromedriver'), options=chrome_options)
 else:
     browser = ''
     print('Use Windows or Linux!')

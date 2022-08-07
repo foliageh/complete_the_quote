@@ -1,2 +1,5 @@
-.idea
-sentences_datasets
+.idea/
+sentences_datasets/
+*.pyc
+*.bak
+__pycache__/
