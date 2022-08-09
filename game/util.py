@@ -38,5 +38,5 @@ def mask(text):
 def get_random_quote():
     quote = quote_db.get_random_quote()
     quote['masked_quote'], quote['hided_words'] = mask(quote['quote'])
-    quote['translation'] = 'ffefef e'  # translator.translate(quote['quote'])
+    quote['translation'] = translator.translate(quote['quote'])
     return quote
