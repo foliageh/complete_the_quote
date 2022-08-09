@@ -96,15 +96,3 @@ with open('sentences_datasets/quotes.csv', newline='', encoding='utf-8') as f:
                 print(f'{word}: wrong! (right word is `{right_word}`)')
         # sleep(20)
         print(quote)
-
-'''
-class Database:
-    def __init__(self):
-        pass
-
-    def get_random_quote(self, tags=None):
-        pass
-
-    def add_quote(self, quote, translation, tags, source):
-        pass
-'''

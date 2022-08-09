@@ -1,0 +1,66 @@
+:root {
+    --bs-font-sans-serif: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --bs-body-font-size: 2rem;
+}
+
+.custom-popover {
+    --bs-popover-border-color: var(--bs-primary);
+    --bs-popover-body-padding-x: .8rem;
+    --bs-popover-body-padding-y: .3rem;
+    --bs-popover-bg: var(--bs-primary);
+    --bs-popover-body-color: var(--bs-white);
+}
+
+.masked-quote {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.7em;
+}
+
+.quote-author {
+    font-style: italic;
+}
+
+.quote-author, .quote-translation {
+    font-size: 1.3rem;
+    letter-spacing: -0.02em;
+}
+
+.word-input {
+    margin: 0 0.2rem;
+    width: 13.5rem;
+    line-height: 1em;
+    border: 3px solid black;
+    border-radius: 10px;
+}
+
+.right-word {
+    border-color: green;
+}
+.wrong-word {
+    border-color: red;
+}
+
+@keyframes hide-btn {
+    0% {opacity: 1}
+    100% {opacity: 0}
+}
+@keyframes show-next-btn {
+    0% {opacity: 0; left: 0%}
+    100% {opacity: 1; left: 41.66%}
+}
+.check-btn {
+    animation: 0.5s forwards hide-btn paused;
+}
+.next-btn {
+    position: relative;
+    animation: 0.5s forwards show-next-btn paused;
+}
+
+/*@import "../bootstrap/scss/functions";*/
+/*$font-family-sans-serif: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
+/*$font-size-base: 1.8rem;*/
+/*@import "../bootstrap/scss/variables";*/
+/*@import "../bootstrap/scss/maps";*/
+/*@import "../bootstrap/scss/mixins";*/
+/*@import "../bootstrap/scss/root";*/
