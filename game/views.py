@@ -5,8 +5,6 @@ from django.views.decorators.csrf import csrf_exempt
 from . import util
 
 
-
-
 def index(request):
     return render(request, 'game/index.html', {})
 

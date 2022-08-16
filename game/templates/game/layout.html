@@ -7,12 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}Complete the quote!{% endblock %}</title>
     <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=DM Serif Display' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'game/bootstrap/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'game/css/custom.css' %}">
     <script src="{% static 'game/bootstrap/bootstrap.bundle.min.js' %}"></script>
     {% block script %}{% endblock %}
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container col-11">
+            <a class="navbar-brand" href="#">COMPLETE THE QUOTE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link ms-4 ps-0 pe-0 active" aria-current="page" href="#">Play</a>
+                    <a class="nav-link ms-4 ps-0 pe-0" href="#">Rules</a>
+                    <a class="nav-link ms-4 ps-0 pe-0" href="#">Settings</a>
+                </div>
+            </div>
+        </div>
+    </nav>
     {% block body %}{% endblock %}
 </body>
 </html>

@@ -1,17 +1,20 @@
+let curr_quote;
+let words_number=0, right_words_number=0;
+
 document.addEventListener('DOMContentLoaded', function() {
-	document.querySelector('#check').onclick = () => checkQuote();
-	document.querySelector('#next').onclick = () => loadQuote();
+	document.querySelector('#check').addEventListener('click', checkQuote);
+	document.querySelector('#next').addEventListener('click', loadQuote);
 	loadQuote();
 });
 
 function checkQuote() {
-	const quote = JSON.parse(localStorage.getItem('quote'));
-	let word_index=0;
+	let word_index = 0;
 	document.querySelectorAll('.word-input').forEach(field => {
 		const word = field.value;
-		const right_word = quote.hided_words[word_index];
-		if (word === right_word) {
+		const right_word = curr_quote.hided_words[word_index];
+		if (word.toLowerCase().trim().replaceAll('  ', ' ') === right_word.toLowerCase()) {
 			field.classList.add('right-word');
+			right_words_number++;
 		}
 		else {
 			field.parentElement.setAttribute('data-bs-content', right_word);
@@ -20,8 +23,11 @@ function checkQuote() {
 			field.classList.add('wrong-word');
 		}
 		field.setAttribute('disabled', '');
-		word_index += 1
+		word_index++;
 	});
+	words_number += word_index;
+	document.querySelector('#points').innerHTML = String(right_words_number);
+	document.querySelector('#percentage').innerHTML = (+(100*(right_words_number / words_number)).toPrecision(4)).toString();
 
 	const check_btn = document.querySelector('#check');
 	const next_btn = document.querySelector('#next');
@@ -38,6 +44,7 @@ function checkQuote() {
   		check_btn.style.animation = null;
     });
 }
+
 function loadQuote(){
 	document.querySelector('#next').setAttribute('hidden', '');
 	document.querySelectorAll('[data-bs-toggle="popover"]')
@@ -54,7 +61,7 @@ function loadQuote(){
     .then(quote => {
 		document.querySelector('#quote-author').innerHTML = quote.author;
 		document.querySelector('#quote-translation').innerHTML = quote.translation;
-		localStorage.setItem('quote', JSON.stringify(quote));
+		curr_quote = quote;
 
 		let masked_quote_html = '';
 		quote.masked_quote.forEach(word => {

@@ -12,23 +12,24 @@
 }
 
 .masked-quote {
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-weight: bold;
+    letter-spacing: -0.03em;
     line-height: 1.7em;
 }
 
 .quote-author {
     font-style: italic;
+    font-weight: bold;
 }
 
 .quote-author, .quote-translation {
-    font-size: 1.3rem;
-    letter-spacing: -0.02em;
+    font-size: 0.75em;
+    letter-spacing: -0.025em;
 }
 
 .word-input {
-    margin: 0 0.2rem;
-    width: 13.5rem;
+    margin: 0 0.1em;
+    width: 6em;
     line-height: 1em;
     border: 3px solid black;
     border-radius: 10px;
@@ -46,8 +47,8 @@
     100% {opacity: 0}
 }
 @keyframes show-next-btn {
-    0% {opacity: 0; left: 0%}
-    100% {opacity: 1; left: 41.66%}
+    0% {opacity: 0; left: 0}
+    100% {opacity: 1; left: 46%}  /* picked up manually, don't know how to make the right edge poised over the container */
 }
 .check-btn {
     animation: 0.5s forwards hide-btn paused;
@@ -56,6 +57,40 @@
     position: relative;
     animation: 0.5s forwards show-next-btn paused;
 }
+
+.icon {
+    display: inline-block;
+    vertical-align: -0.07em;
+}
+
+
+.navbar-brand {
+    font-family: "DM Serif Display", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    letter-spacing: 0.105em;
+    font-size: 1em;
+}
+
+.nav-link {
+    text-shadow: 0 calc(1rem / 4) calc(1rem / 4) rgba(0, 0, 0, 0.25);
+    font-size: 0.8em;
+}
+.navbar {
+    background-color: #e3f2fd;
+}
+
+
+
+/*Medium devices (tablets, 768px and up)*/
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 0.6em;
+    }
+    .game {
+        font-size: 0.8em;
+    }
+}
+
+
 
 /*@import "../bootstrap/scss/functions";*/
 /*$font-family-sans-serif: "DM Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";*/
