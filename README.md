@@ -8,15 +8,20 @@ You need Docker on your computer to run the app.
 ```sh
 git clone https://github.com/foliageh/complete_the_quote.git
 cd complete_the_quote
-docker-compose up
+docker-compose run django python manage.py migrate
 ```
 
-## Launch
-Enter the following command while in the project folder:
+## Launch & Closing
+Enter the following command while in the project folder to launch the app:
 ```sh
 docker-compose up
 ```
 Then open http://localhost:8000 in browser.
+
+To close the app, enter the following command:
+```sh
+docker-compose down
+```
 
 ## Screenshots
 ![1](https://user-images.githubusercontent.com/46216950/185354842-dd1ec6d3-2bb7-4257-9daa-d0a9bbfc3eb2.jpg)

@@ -14,7 +14,7 @@ def fill_db():
     print('!!!!!!! The database is empty, starting to fill. Wait a minute... ')
     while True:
         try:
-            quote, author, tags = next(reader)
+            author, quote, tags = next(reader)
         except StopIteration:
             break
         Quote(source=author, text=quote, tags=tags).save()
