@@ -1,5 +1,4 @@
 .idea/
-sentences_datasets/
 *.pyc
 *.bak
 __pycache__/

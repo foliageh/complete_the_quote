@@ -11,7 +11,12 @@ def index(request):
 
 @csrf_exempt
 def get_random_quote(request):
-    quote = util.get_random_quote()
+    try:
+        quote = util.get_random_quote()
+    except:
+        util.fill_db()
+        quote = util.get_random_quote()
+
     if request.method == 'GET':
         return JsonResponse(quote)
     else:

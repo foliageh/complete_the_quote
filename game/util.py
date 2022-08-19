@@ -3,6 +3,24 @@ from . import translator
 from . models import Quote
 
 
+def fill_db():
+    import csv
+    from pathlib import Path
+
+    dataset_path = Path(Path().parent, 'sentences_datasets', 'quotes.csv')
+    dataset = open(dataset_path, newline='', encoding='utf-8')
+    reader = csv.reader(dataset)
+
+    print('!!!!!!! The database is empty, starting to fill. Wait a minute... ')
+    while True:
+        try:
+            quote, author, tags = next(reader)
+        except StopIteration:
+            break
+        Quote(source=author, text=quote, tags=tags).save()
+    print("It's all ready!")
+
+
 def _add_quotes_from_csv():
     # data in quotes.csv was given in the following format:
     #   row1: quote,author,category
@@ -85,6 +103,7 @@ def get_random_quote():
              'tags': quote.tags}
     quote['masked_quote'], quote['hided_words'] = mask(quote['quote'])
     quote['translation'] = translator.translate(quote['quote'])
+
     return quote
 
 
